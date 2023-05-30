@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/didiercruz/Projects/ManejoPresupuesto/ManejoPresupuesto/ManejoPresupuesto.csproj": {}
+  },
+  "projects": {
+    "/Users/didiercruz/Projects/ManejoPresupuesto/ManejoPresupuesto/ManejoPresupuesto.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/didiercruz/Projects/ManejoPresupuesto/ManejoPresupuesto/ManejoPresupuesto.csproj",
+        "projectName": "ManejoPresupuesto",
+        "projectPath": "/Users/didiercruz/Projects/ManejoPresupuesto/ManejoPresupuesto/ManejoPresupuesto.csproj",
+        "packagesPath": "/Users/didiercruz/.nuget/packages/",
+        "outputPath": "/Users/didiercruz/Projects/ManejoPresupuesto/ManejoPresupuesto/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/didiercruz/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.302/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
