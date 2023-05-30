@@ -11,6 +11,14 @@ namespace ManejoPresupuesto.Servicios
 
 		Task<IEnumerable<Categoria>> Obtener(int usuarioId);
 
+		Task<IEnumerable<Categoria>> Obtener(int usuarioId, TipoOperacion tipoOperacionId);
+
+        Task<Categoria> ObtenerPorId(int id, int usuarioId);
+
+		Task Actualizar(Categoria categoria);
+
+		Task Borrar(int id);
+
     }
 
     public class RepositorioCategorias: IRepositorioCategorias
@@ -39,7 +47,41 @@ namespace ManejoPresupuesto.Servicios
 		{
 			using var connection = new SqlConnection(connectionString);
 			return await connection.QueryAsync<Categoria>(
-				@"SELECT * FROM Categorias WHERE UsuarioId = @usuaroId", new { usuarioId });
+				@"SELECT * FROM Categorias WHERE UsuarioId = @usuarioId", new { usuarioId });
+		}
+
+        public async Task<IEnumerable<Categoria>> Obtener(int usuarioId, TipoOperacion tipoOperacionId)
+        {
+            using var connection = new SqlConnection(connectionString);
+            return await connection.QueryAsync<Categoria>(
+                @"SELECT *
+				FROM Categorias
+				WHERE UsuarioId = @usuarioId AND TipoOperacionId = @tipoOperacionId",
+				new { usuarioId, tipoOperacionId });
+        }
+
+        public async Task<Categoria> ObtenerPorId (int id, int usuarioId)
+		{
+			using var connection = new SqlConnection(connectionString);
+			return await connection.QueryFirstOrDefaultAsync<Categoria>(
+				@"Select * FROM Categorias WHERE Id = @Id AND UsuarioId = @UsuarioId",
+				new { id, usuarioId });
+		}
+
+		public async Task Actualizar(Categoria categoria)
+		{
+			using var connection = new SqlConnection(connectionString);
+			await connection.ExecuteAsync(@"
+				UPDATE Categorias
+				SET Nombre = @Nombre, TipoOperacionId = @TipoOperacionId
+				WHERE Id = @Id
+			", categoria);
+		}
+
+		public async Task Borrar (int id)
+		{
+			using var connection = new SqlConnection(connectionString);
+			await connection.ExecuteAsync("DELETE Categorias WHERE Id = @Id", new { id });
 		}
 	}
 }
